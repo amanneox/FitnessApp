@@ -33,6 +33,19 @@ public class AccountFrag extends Fragment {
 
             }
         });
+
+        CardView invite=rootView.findViewById(R.id.invite);
+        invite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,
+                        "Hey check out my app at: https://play.google.com/store/apps/details?id=com.google.android.apps.plus");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+            }
+        });
         return rootView;
     }
 }
