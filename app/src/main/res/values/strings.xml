@@ -108,4 +108,12 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="activity_unknown" />
+    <string name="activity_in_vehicle" />
+    <string name="activity_on_bicycle" />
+    <string name="activity_on_foot" />
+    <string name="activity_running">Running</string>
+    <string name="activity_still">Still</string>
+    <string name="activity_tilting">Tilting</string>
+    <string name="activity_walking">Walking</string>
 </resources>
