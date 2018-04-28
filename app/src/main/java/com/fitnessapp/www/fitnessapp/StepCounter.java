@@ -39,11 +39,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 
-/**
- * This sample demonstrates combining the Recording API and History API of the Google Fit platform
- * to record steps, and display the daily current step count. It also demonstrates how to
- * authenticate a user with Google Play Services.
- */
 public class StepCounter extends AppCompatActivity {
 
     public static final String TAG = "StepCounter";
