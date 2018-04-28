@@ -1,4 +1,4 @@
-/*
+package com.fitnessapp.www.fitnessapp;/*
  * Copyright (C) 2014 Google, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,10 +20,10 @@
  *
  * <p>When this is set as the head of the list,
  * an instance of it can function as a drop-in replacement for {@link android.util.Log}.
- * Most of the methods in this class serve only to map a method call in Log to its equivalent
+ * Most of the methods in this class serve only to map a method call in Logger to its equivalent
  * in LogNode.</p>
  */
-public class Log {
+public class Logger {
     // Grabbing the native values from Android's native logging facilities,
     // to make for easy migration and interop.
     public static final int NONE = -1;
@@ -35,19 +35,19 @@ public class Log {
     public static final int ASSERT = android.util.Log.ASSERT;
 
     // Stores the beginning of the LogNode topology.
-    private static com.google.android.gms.fit.samples.common.logger.LogNode mLogNode;
+    private static LogNode mLogNode;
 
     /**
      * Returns the next LogNode in the linked list.
      */
-    public static com.google.android.gms.fit.samples.common.logger.LogNode getLogNode() {
+    public static LogNode getLogNode() {
         return mLogNode;
     }
 
     /**
      * Sets the LogNode data will be sent to.
      */
-    public static void setLogNode(com.google.android.gms.fit.samples.common.logger.LogNode node) {
+    public static void setLogNode(LogNode node) {
         mLogNode = node;
     }
 
@@ -55,7 +55,7 @@ public class Log {
      * Instructs the LogNode to print the log data provided. Other LogNodes can
      * be chained to the end of the LogNode as desired.
      *
-     * @param priority Log level of the data being logged. Verbose, Error, etc.
+     * @param priority Logger level of the data being logged. Verbose, Error, etc.
      * @param tag Tag for for the log data. Can be used to organize log statements.
      * @param msg The actual message to be logged.
      * @param tr If an exception was thrown, this can be sent along for the logging facilities
@@ -71,7 +71,7 @@ public class Log {
      * Instructs the LogNode to print the log data provided. Other LogNodes can
      * be chained to the end of the LogNode as desired.
      *
-     * @param priority Log level of the data being logged. Verbose, Error, etc.
+     * @param priority Logger level of the data being logged. Verbose, Error, etc.
      * @param tag Tag for for the log data. Can be used to organize log statements.
      * @param msg The actual message to be logged. The actual message to be logged.
      */

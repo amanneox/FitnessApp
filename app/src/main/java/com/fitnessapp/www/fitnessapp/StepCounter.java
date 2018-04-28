@@ -19,8 +19,10 @@ package com.fitnessapp.www.fitnessapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -36,6 +38,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+
 /**
  * This sample demonstrates combining the Recording API and History API of the Google Fit platform
  * to record steps, and display the daily current step count. It also demonstrates how to
@@ -46,6 +49,7 @@ public class StepCounter extends AppCompatActivity {
     public static final String TAG = "StepCounter";
     private static final int REQUEST_OAUTH_REQUEST_CODE = 0x1001;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,16 +147,17 @@ public class StepCounter extends AppCompatActivity {
     }
 
     /** Initializes a custom log class that outputs both to in-app targets and logcat. */
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void initializeLogging() {
         // Wraps Android's native log framework.
-        com.google.android.gms.fit.samples.common.logger.LogWrapper logWrapper = new com.google.android.gms.fit.samples.common.logger.LogWrapper();
-        // Using Log, front-end to the logging chain, emulates android.util.log method signatures.
-        Log.setLogNode(logWrapper);
+       LogWrapper logWrapper = new LogWrapper();
+        // Using Logger, front-end to the logging chain, emulates android.util.log method signatures.
+        Logger.setLogNode(logWrapper);
         // Filter strips out everything except the message text.
         MessageOnlyLogFilter msgFilter = new MessageOnlyLogFilter();
         logWrapper.setNext(msgFilter);
         // On screen logging via a customized TextView.
-        com.google.android.gms.fit.samples.common.logger.LogView logView = (com.google.android.gms.fit.samples.common.logger.LogView) findViewById(R.id.sample_logview);
+        LogView logView = (LogView) findViewById(R.id.sample_logview);
 
         // Fixing this lint error adds logic without benefit.
         // noinspection AndroidLintDeprecation

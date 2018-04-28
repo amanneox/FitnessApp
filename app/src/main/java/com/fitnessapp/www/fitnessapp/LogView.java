@@ -1,4 +1,4 @@
-/*
+package com.fitnessapp.www.fitnessapp;/*
  * Copyright (C) 2014 Google, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,16 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.android.gms.fit.samples.common.logger;
+
 
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.fitnessapp.www.fitnessapp.LogNode;
+
 /** Simple TextView which is used to output log data received through the LogNode interface.
 */
-public class LogView extends TextView implements LogNode {
+public class LogView extends android.support.v7.widget.AppCompatTextView implements LogNode {
 
     public LogView(Context context) {
         super(context);
@@ -38,7 +40,7 @@ public class LogView extends TextView implements LogNode {
 
     /**
      * Formats the log data and prints it out to the LogView.
-     * @param priority Log level of the data being logged.  Verbose, Error, etc.
+     * @param priority Logger level of the data being logged.  Verbose, Error, etc.
      * @param tag Tag for for the log data.  Can be used to organize log statements.
      * @param msg The actual message to be logged. The actual message to be logged.
      * @param tr If an exception was thrown, this can be sent along for the logging facilities
@@ -74,7 +76,7 @@ public class LogView extends TextView implements LogNode {
                 break;
         }
 
-        // Handily, the Log class has a facility for converting a stack trace into a usable string.
+        // Handily, the Logger class has a facility for converting a stack trace into a usable string.
         String exceptionStr = null;
         if (tr != null) {
             exceptionStr = android.util.Log.getStackTraceString(tr);
